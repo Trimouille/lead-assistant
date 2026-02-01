@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Bots – Lead Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --max: 1120px;
+      --ink: #111;
+      --muted: #555;
+      --border: rgba(0,0,0,0.1);
+      --soft: #f6f7f9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: #fff;
+      border: none;
+    }
+
+    .hero {
+      padding: 70px 0 40px;
+    }
+
+    .kicker {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 14px;
+    }
+
+    .sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .highlight {
+      background: var(--soft);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .demo-box {
+      margin-top: 20px;
+      border: 2px dashed var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="brand">AI Bots</div>
+    <div class="cta-row">
+      <a class="btn" href="https://cal.eu/gembot" target="_blank">Book a call</a>
+      <button class="btn btn-primary" onclick="openLeadAssistant()">Try the bot</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <p class="kicker">AI marketing & sales bots for small businesses</p>
+    <h1>Capture, qualify and book leads automatically</h1>
+    <p class="sub">
+      Meet the <strong>Lead Assistant</strong> — an AI chatbot that replies instantly,
+      asks a few smart questions, and guides good‑fit enquiries to a call.
+    </p>
+
+    <div class="cta-row">
+      <button class="btn btn-primary" onclick="openLeadAssistant()">Try the Lead Assistant</button>
+      <a class="btn" href="https://cal.eu/gembot" target="_blank">Book a no‑obligation call</a>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container two-col">
+    <div class="card">
+      <h3>Pricing</h3>
+
+      <p><strong>One-off setup</strong><br>
+      <strong>£300</strong><br>
+      We configure the Lead Assistant for your business, tailor the questions,
+      install it on your website and test everything end-to-end.</p>
+
+      <p><strong>Monthly subscription</strong><br>
+      <strong>£50 per month</strong><br>
+      Covers ongoing use of the Lead Assistant, AI message usage, minor tweaks,
+      and basic support.</p>
+
+      <p>
+        This is suitable for most small businesses and comfortably covers
+        <strong>around 200 website conversations per month</strong>.
+      </p>
+
+      <p class="muted">
+        If a site has unusually high traffic, we simply review usage and agree
+        the best option — there are no surprises.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>No contracts, no pressure</h3>
+      <p>
+        The subscription is monthly and can be cancelled at any time.
+        There’s no obligation to continue if it’s not right for you.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://cal.eu/gembot" target="_blank">Book a no‑obligation call</a>
+        <button class="btn" onclick="openLeadAssistant()">Ask the bot first</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <p>© 2026 AI Bots</p>
+  </div>
+</footer>
+
+<script>
+  function openLeadAssistant() {
+    try { if (window.chatbase) window.chatbase('open'); } catch(e){}
+    setTimeout(() => {
+      try { if (window.chatbase) window.chatbase('open'); } catch(e){}
+    }, 400);
+  }
+</script>
+
+<!-- Chatbase embed -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="fQ_JFYSVmPHe8QQyJKgjV";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+</body>
+</html>
